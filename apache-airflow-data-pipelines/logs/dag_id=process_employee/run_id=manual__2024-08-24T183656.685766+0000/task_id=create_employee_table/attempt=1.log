@@ -1,0 +1,35 @@
+[2024-08-24T18:36:58.610+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-24T18:36:58.637+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_employee.create_employee_table manual__2024-08-24T18:36:56.685766+00:00 [queued]>
+[2024-08-24T18:36:58.651+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_employee.create_employee_table manual__2024-08-24T18:36:56.685766+00:00 [queued]>
+[2024-08-24T18:36:58.652+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2024-08-24T18:36:58.675+0000] {taskinstance.py:2879} INFO - Executing <Task(SQLExecuteQueryOperator): create_employee_table> on 2024-08-24 18:36:56.685766+00:00
+[2024-08-24T18:36:58.683+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=811) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-24T18:36:58.686+0000] {standard_task_runner.py:72} INFO - Started process 818 to run task
+[2024-08-24T18:36:58.686+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'process_employee', 'create_employee_table', 'manual__2024-08-24T18:36:56.685766+00:00', '--job-id', '78', '--raw', '--subdir', 'DAGS_FOLDER/employee_DAG.py', '--cfg-path', '/tmp/tmpllzzpfbt']
+[2024-08-24T18:36:58.688+0000] {standard_task_runner.py:105} INFO - Job 78: Subtask create_employee_table
+[2024-08-24T18:36:58.766+0000] {task_command.py:467} INFO - Running <TaskInstance: process_employee.create_employee_table manual__2024-08-24T18:36:56.685766+00:00 [running]> on host 67412decceee
+[2024-08-24T18:36:58.896+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='process_employee' AIRFLOW_CTX_TASK_ID='create_employee_table' AIRFLOW_CTX_EXECUTION_DATE='2024-08-24T18:36:56.685766+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-24T18:36:56.685766+00:00'
+[2024-08-24T18:36:58.900+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-24T18:36:58.905+0000] {sql.py:282} INFO - Executing: 
+CREATE TABLE IF NOT EXISTS EMPLOYEES (
+    "SERIAL_NUMBER" NUMERIC PRIMARY KEY,
+    "COMPANY_NAME" VARCHAR(100),
+    "EMPLOYEE MARKME" TEXT,
+    "LEAVE" INTEGER
+);
+[2024-08-24T18:36:58.917+0000] {base.py:84} INFO - Retrieving connection 'employee_db_conn'
+[2024-08-24T18:36:58.926+0000] {base.py:84} INFO - Retrieving connection 'employee_db_conn'
+[2024-08-24T18:36:59.009+0000] {sql.py:509} INFO - Running statement: 
+CREATE TABLE IF NOT EXISTS EMPLOYEES (
+    "SERIAL_NUMBER" NUMERIC PRIMARY KEY,
+    "COMPANY_NAME" VARCHAR(100),
+    "EMPLOYEE MARKME" TEXT,
+    "LEAVE" INTEGER
+);, parameters: None
+[2024-08-24T18:36:59.067+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-24T18:36:59.068+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=process_employee, task_id=create_employee_table, run_id=manual__2024-08-24T18:36:56.685766+00:00, execution_date=20240824T183656, start_date=20240824T183658, end_date=20240824T183659
+[2024-08-24T18:36:59.103+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-24T18:36:59.134+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-24T18:36:59.137+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

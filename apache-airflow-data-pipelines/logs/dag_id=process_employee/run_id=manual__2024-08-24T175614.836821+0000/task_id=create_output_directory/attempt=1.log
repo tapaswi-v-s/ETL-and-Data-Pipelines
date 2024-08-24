@@ -1,0 +1,20 @@
+[2024-08-24T17:56:19.228+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-24T17:56:19.281+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_employee.create_output_directory manual__2024-08-24T17:56:14.836821+00:00 [queued]>
+[2024-08-24T17:56:19.305+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_employee.create_output_directory manual__2024-08-24T17:56:14.836821+00:00 [queued]>
+[2024-08-24T17:56:19.307+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2024-08-24T17:56:19.337+0000] {taskinstance.py:2879} INFO - Executing <Task(_PythonDecoratedOperator): create_output_directory> on 2024-08-24 17:56:14.836821+00:00
+[2024-08-24T17:56:19.345+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=309) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-24T17:56:19.350+0000] {standard_task_runner.py:72} INFO - Started process 321 to run task
+[2024-08-24T17:56:19.349+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'process_employee', 'create_output_directory', 'manual__2024-08-24T17:56:14.836821+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/employee_DAG.py', '--cfg-path', '/tmp/tmpvp2j3ekf']
+[2024-08-24T17:56:19.351+0000] {standard_task_runner.py:105} INFO - Job 69: Subtask create_output_directory
+[2024-08-24T17:56:19.452+0000] {task_command.py:467} INFO - Running <TaskInstance: process_employee.create_output_directory manual__2024-08-24T17:56:14.836821+00:00 [running]> on host 67412decceee
+[2024-08-24T17:56:19.645+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='process_employee' AIRFLOW_CTX_TASK_ID='create_output_directory' AIRFLOW_CTX_EXECUTION_DATE='2024-08-24T17:56:14.836821+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-24T17:56:14.836821+00:00'
+[2024-08-24T17:56:19.647+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-24T17:56:19.657+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-08-24T17:56:19.681+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-24T17:56:19.682+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=process_employee, task_id=create_output_directory, run_id=manual__2024-08-24T17:56:14.836821+00:00, execution_date=20240824T175614, start_date=20240824T175619, end_date=20240824T175619
+[2024-08-24T17:56:19.756+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-24T17:56:19.805+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-24T17:56:19.809+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
