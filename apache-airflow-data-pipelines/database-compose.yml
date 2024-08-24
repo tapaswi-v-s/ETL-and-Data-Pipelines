@@ -1,4 +1,4 @@
-name: employee-db
+name: database
 
 services:
   postgres-db:
@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: EMPLOYEE_DB
+      POSTGRES_DB: TUTORIAL_DB
     ports:
       - 5432:5432
     volumes:
