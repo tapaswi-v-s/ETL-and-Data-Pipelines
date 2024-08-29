@@ -22,6 +22,18 @@ Imagine a world where data flows effortlessly, tasks are automated, and everythi
         - `merge_data()`: Filters out the noise and keeps only the unique records.
     - **How It Flows**: `[create_output_directory(), create_employee_table, create_employees_temp_table] >> get_data() >> merge_data()`
 
+- **ETL_toll_data.py**:
+    - **What’s Inside**: Ever wondered how data from different toll plazas, each with its own IT setup, gets consolidated? This DAG does exactly that! It’s built to analyze toll data collected from highways operated by different companies, each using its own file format. The DAG pulls all this data together into a single, unified file.
+    - **Tasks Include**:
+        - `download_data`: Grabs a tarball file containing all the toll data.
+        - `unzip_data`: Extracts the contents from the tarball.
+        - `extract_data_from_csv`: Pulls out the Rowid, Timestamp, Anonymized Vehicle Number, and Vehicle Type fields from the `vehicle-data.csv` file and saves them to `csv_data.csv`.
+        - `extract_data_from_tsv`: Extracts the Number of Axles, Tollplaza ID, and Tollplaza Code fields from the `tollplaza-data.tsv` file (a tab-separated file) and saves them to `tsv_data.csv`.
+        - `extract_data_from_fixed_width`: Retrieves the Type of Payment Code and Vehicle Code fields from the fixed-width file `payment-data.txt` and saves them to `fixed_width_data.csv`.
+        - `consolidate_data`: Combines all the extracted data into a single file named `extracted_data.csv`.
+        - `transform_data`: Transforms the `vehicle_type` field in `extracted_data.csv` to uppercase and saves it as `transformed_data.csv`.
+    - **How It Flows**: `download_data >> unzip_data >> extract_data_from_csv_task >> extract_data_from_tsv_task >> extract_data_from_fixed_width_task >> consolidate_data_task >> transform_data_task`
+
 - **AWS_FAQs_Extraction.py**:
     - **Status**: 🚧 Under Construction! I’ll be working on this soon to extract FAQs from AWS docs.
 
